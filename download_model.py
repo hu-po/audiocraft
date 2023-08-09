@@ -23,6 +23,12 @@ tar xvf nccl_2.18.3-1+cuda11.0_x86_64.txz
 ldconfig -p | grep nccl
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/nccl_2.18.3-1+cuda11.0_x86_64/lib
 
+# Install cuDNN
+https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html
+sudo dpkg -i cudnn-local-repo-ubuntu2204-8.5.0.96_1.0-1_amd64.deb
+sudo apt-get install libcudnn8=8.5.0.*-1+cuda11.7
+sudo apt-get install libcudnn8-dev=8.5.0.*-1+cuda11.7
+sudo apt-get install libcudnn8-samples=8.5.0.*-1+cuda11.7
 '''
 import os
 from huggingface_hub import snapshot_download
